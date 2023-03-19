@@ -22,4 +22,8 @@ export class MainPageComponent {
     name: 'Roshi',
     power: 1000
   }
+
+  addNewCharacter(character: Character): void {
+    this.charactersArr.push(character);
+  }
 }

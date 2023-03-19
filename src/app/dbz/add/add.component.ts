@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Character } from '../interfaces/character.interface';
 
 @Component({
@@ -13,16 +13,18 @@ export class AddComponent {
     power: 0
   }
 
+  @Output() onNewCharacter = new EventEmitter<Character>();
+
   add(): void {
     if (this.newCharacter.name.trim().length === 0) {
       console.log('Name value empty.');
       return;
     }
 
-    console.log('addFn', this.newCharacter);
+    console.log(`[CHILD]: Character to add - ${JSON.stringify(this.newCharacter)}`);
 
     //  Add the new character to the charArr to be displayed
-    this.charactersArr.push(this.newCharacter);
+    this.onNewCharacter.emit(this.newCharacter);
 
     //  Clean the Character object
     this.newCharacter = {
