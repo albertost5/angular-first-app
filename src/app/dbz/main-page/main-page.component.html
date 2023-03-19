@@ -5,23 +5,12 @@
 <div class="row">
 
   <div class="col">
-    <app-characters [characters]="characterArr">
+    <app-characters [characters]="charactersArr">
     </app-characters>
   </div>
 
   <div class="col">
-    <h3>Add</h3>
-    <hr>
-
-    <form (ngSubmit)="add()">
-      <!-- <input type="text" placeholder="Name" [value]="characterInfo.name" (input)="changeName( $event )" /> -->
-      <input type="text" placeholder="Name" [(ngModel)]="newCharacter.name" name="name" />
-      <input type="number" placeholder="Power" [(ngModel)]="newCharacter.power" name="power" />
-
-      <button type="submit">
-        Add
-      </button>
-    </form>
+    <app-add [newCharacter]="newCharacter" [charactersArr]="charactersArr"></app-add>
   </div>
 
 </div>
