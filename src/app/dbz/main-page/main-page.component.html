@@ -5,13 +5,8 @@
 <div class="row">
 
   <div class="col">
-    <h3>Characters</h3>
-    <hr>
-    <ul>
-      <li *ngFor="let character of characterArr">
-        {{ character.name }} - {{ character.power | number }}
-      </li>
-    </ul>
+    <app-characters [characters]="characterArr">
+    </app-characters>
   </div>
 
   <div class="col">
