@@ -1,0 +1,32 @@
+<h1>Dragon Ball Z</h1>
+<hr>
+
+
+<div class="row">
+
+  <div class="col">
+    <h3>Characters</h3>
+    <hr>
+    <ul>
+      <li *ngFor="let character of characterArr">
+        {{ character.name }} - {{ character.power | number }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="col">
+    <h3>Add</h3>
+    <hr>
+
+    <form (ngSubmit)="add()">
+      <!-- <input type="text" placeholder="Name" [value]="characterInfo.name" (input)="changeName( $event )" /> -->
+      <input type="text" placeholder="Name" [(ngModel)]="newCharacter.name" name="name" />
+      <input type="number" placeholder="Power" [(ngModel)]="newCharacter.power" name="power" />
+
+      <button type="submit">
+        Add
+      </button>
+    </form>
+  </div>
+
+</div>
